@@ -31,3 +31,17 @@ map' f xs = foldr (\x y -> f x : y) [] xs
 filter' :: (a -> Bool) -> [a] -> [a]
 filter' p xs = foldr f [] xs
   where f v acc = if p v then v : acc else acc
+
+-- 4
+dec2int xs = foldl f 0 xs
+  where f acc v = acc * 10 + v
+
+-- 5
+{-
+I am not sure if compose [a] is really a function. No such thing on
+hoogle. In any case, the following thing evaluates to 220:
+sum . map (^2) . filter even $ [1..10] so not really sure what might be
+the problem.
+-}
+
+
